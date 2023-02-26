@@ -73,6 +73,18 @@ posponer = 0.1
 while True:
     wn.update()
 
+    #Colisiones bordes
+    if cabeza_serpiente.xcor() > 280 or cabeza_serpiente.xcor() < -280 or cabeza_serpiente.ycor() > 280 or cabeza_serpiente.ycor() < -280:
+        time.sleep(1)
+        cabeza_serpiente.goto(0,0)
+        cabeza_serpiente.direction = "stop"
+
+        #Escnder segmentos (vuerpo de serpiente)
+        for segmento in segmentos:
+            segmento.goto(1000,1000)
+        #Limpiar codigo de segmentos
+        segmentos.clear()
+
     #Colisiones comida
     if cabeza_serpiente.distance(comida_serpiente) < 20:
         x = random.randint(-280, 280)
