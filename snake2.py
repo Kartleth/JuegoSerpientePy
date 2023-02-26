@@ -21,6 +21,15 @@ cabeza_serpiente.goto(0,0)
 cabeza_serpiente.direction = "up"
 
 #Funciones
+def arriba():
+    cabeza_serpiente.direction = "up"
+def abajo():
+    cabeza_serpiente.direction = "down"
+def izquierda():
+    cabeza_serpiente.direction = "left"
+def derecha():
+    cabeza_serpiente.direction = "right"
+
 def mov():
     if cabeza_serpiente.direction == "up":
         y = cabeza_serpiente.ycor()
