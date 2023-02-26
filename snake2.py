@@ -27,6 +27,10 @@ comida_serpiente.color("red")
 comida_serpiente.penup()
 comida_serpiente.goto(0,100)
 
+#Cuerpo de serpiente
+segmentos = []
+
+
 
 #Funciones
 def arriba():
@@ -69,11 +73,30 @@ posponer = 0.1
 while True:
     wn.update()
 
+    #Colisiones comida
     if cabeza_serpiente.distance(comida_serpiente) < 20:
         x = random.randint(-280, 280)
         y = random.randint(-280, 280)
         comida_serpiente.goto(x,y)
 
+        nuevo_segmento = turtle.Turtle()
+        nuevo_segmento.speed(0)
+        nuevo_segmento.shape("square")
+        nuevo_segmento.color("grey")
+        nuevo_segmento.penup()
+        segmentos.append(nuevo_segmento)
+
+    #Mover el cuerpo de la serpiente
+    totalSeg = len(segmentos)
+    for segmento in range(totalSeg -1, 0, -1):
+        x = segmentos[segmento - 1].xcor()
+        y = segmentos[segmento - 1].ycor()
+        segmentos[segmento].goto(x,y)
+
+    if totalSeg > 0:
+        x = cabeza_serpiente.xcor()
+        y = cabeza_serpiente.ycor()
+        segmentos[0].goto(x,y)
 
 
     mov()
