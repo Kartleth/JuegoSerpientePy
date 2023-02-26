@@ -19,6 +19,15 @@ cabeza_serpiente.penup()
 cabeza_serpiente.goto(0,0)
 cabeza_serpiente.direction = "stop"
 
+#Comida serpiente
+comida_serpiente = turtle.Turtle()
+comida_serpiente.speed(0)
+comida_serpiente.shape("circle")
+comida_serpiente.color("red")
+comida_serpiente.penup()
+comida_serpiente.goto(0,100)
+
+
 #Funciones
 def arriba():
     cabeza_serpiente.direction = "up"
