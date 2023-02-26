@@ -97,6 +97,12 @@ while True:
         #Limpiar codigo de segmentos
         segmentos.clear()
 
+        #Limpiarmarcador
+        score = 0
+        texto.clear()
+        texto.write("Score: {}    High Score: {}".format(score,high_score), align="center", font=("Courier", 24, "normal"))
+
+
     #Colisiones comida
     if cabeza_serpiente.distance(comida_serpiente) < 20:
         x = random.randint(-280, 280)
