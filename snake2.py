@@ -97,7 +97,7 @@ while True:
         #Limpiar codigo de segmentos
         segmentos.clear()
 
-        #Limpiarmarcador
+        #Limpiar marcador
         score = 0
         texto.clear()
         texto.write("Score: {}    High Score: {}".format(score,high_score), align="center", font=("Courier", 24, "normal"))
@@ -138,4 +138,22 @@ while True:
 
 
     mov()
+
+    #Colisiones con el cuerpo 
+    for segmento in segmentos:
+        if segmento.distance(cabeza_serpiente) < 20:
+            time.sleep(1)
+            cabeza_serpiente.goto(0,0)
+            cabeza_serpiente.direction = "stop"
+            #Esconde los segmentos
+            for segmento in segmentos:
+                segmento.goto(1000,1000)
+            #Limpiar los elementos de la lista
+            segmentos.clear()
+
+            #Limpiar marcador
+            score = 0
+            texto.clear()
+            texto.write("Score: {}    High Score: {}".format(score,high_score), align="center", font=("Courier", 24, "normal"))
+
     time.sleep(posponer)
