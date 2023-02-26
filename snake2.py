@@ -1,6 +1,6 @@
 import turtle
 import time
-
+import random
 
 
 #Configuración de la ventana
@@ -68,6 +68,13 @@ posponer = 0.1
 
 while True:
     wn.update()
+
+    if cabeza_serpiente.distance(comida_serpiente) < 20:
+        x = random.randint(-280, 280)
+        y = random.randint(-280, 280)
+        comida_serpiente.goto(x,y)
+
+
 
     mov()
     time.sleep(posponer)
