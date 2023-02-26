@@ -2,6 +2,9 @@ import turtle
 import time
 import random
 
+#Marcador
+score = 0
+high_score = 0
 
 #Configuración de la ventana
 wn = turtle.Screen()
@@ -26,6 +29,15 @@ comida_serpiente.shape("circle")
 comida_serpiente.color("red")
 comida_serpiente.penup()
 comida_serpiente.goto(0,100)
+
+#Texto
+texto = turtle.Turtle()
+texto.speed(0)
+texto.color("white")
+texto.penup()
+texto.hideturtle()
+texto.goto(0,260)
+texto.write("Score: 0    High Score: 0", align="center", font=("Courier", 24, "normal"))
 
 #Cuerpo de serpiente
 segmentos = []
@@ -97,6 +109,14 @@ while True:
         nuevo_segmento.color("grey")
         nuevo_segmento.penup()
         segmentos.append(nuevo_segmento)
+
+        #Aumentar marcador
+        score += 10
+        if score > high_score:
+            high_score = score
+        
+        texto.clear()
+        texto.write("Score: {}    High Score: {}".format(score,high_score), align="center", font=("Courier", 24, "normal"))
 
     #Mover el cuerpo de la serpiente
     totalSeg = len(segmentos)
