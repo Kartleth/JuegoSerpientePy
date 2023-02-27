@@ -17,7 +17,7 @@ wn.tracer(0)
 cabeza_serpiente = turtle.Turtle()
 cabeza_serpiente.speed(0)
 cabeza_serpiente.shape("square")
-cabeza_serpiente.color("white")
+cabeza_serpiente.color("#297E1C")
 cabeza_serpiente.penup()
 cabeza_serpiente.goto(0,0)
 cabeza_serpiente.direction = "stop"
@@ -112,7 +112,7 @@ while True:
         nuevo_segmento = turtle.Turtle()
         nuevo_segmento.speed(0)
         nuevo_segmento.shape("square")
-        nuevo_segmento.color("grey")
+        nuevo_segmento.color("#A4FF83")
         nuevo_segmento.penup()
         segmentos.append(nuevo_segmento)
 
